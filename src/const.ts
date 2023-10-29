@@ -55,7 +55,17 @@ const OFFERS_LIST : TOfferList = [
   },
 ];
 
+const ROUTE_LIST = {
+  'Root' : '/',
+  'Unknown' : '*',
+  'Favourites' : '/favorites',
+  'Login' : '/login',
+  'Offer' : '/offer/:id',
+} as const;
+
 export {
   OFFER_COUNT,
   OFFERS_LIST,
+  ROUTE_LIST,
 };
+
