@@ -1,6 +1,6 @@
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-function FavouritesPage() : JSX.Element {//TODO напрашивается компонент для одного города
+function FavoritesPage() : JSX.Element {//TODO напрашивается компонент для одного города
   return (
     <div className="page">
       <Header/>
@@ -138,4 +138,4 @@ function FavouritesPage() : JSX.Element {//TODO напрашивается ко�
   );
 }
 
-export default FavouritesPage;
+export default FavoritesPage;
