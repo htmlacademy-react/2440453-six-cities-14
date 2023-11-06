@@ -9,7 +9,6 @@ import PrivateRoute from '../private-route/private-route';
 import { AuthorizationStatus, ROUTE_LIST } from '../../consts';
 
 type TAppProps = {
-  offerCount: number;
   offersList: TOfferList;
   reviewsList: TReviewList;
 }
