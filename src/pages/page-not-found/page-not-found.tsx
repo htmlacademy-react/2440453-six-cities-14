@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import LogoFooter from '../../components/logo-footer/logo-footer';
-import { ROUTE_LIST } from '../../const';
+import { ROUTE_LIST } from '../../consts/const';
 
 function PageNotFound(): JSX.Element {//TODO навигацию с логином сюда тоже надо
   return (

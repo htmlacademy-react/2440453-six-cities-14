@@ -1,4 +1,4 @@
-type TLocation = {
+export type TLocation = {
     latitude: number;
     longitude: number;
     zoom: number;
@@ -23,7 +23,7 @@ export type TOffer = {
   description?: string;
   goods?: [string];
   host?: THost;
-  id?: number;
+  id: number;
   images?: [string];
   isFavorite: boolean;
   isPremium: boolean;
