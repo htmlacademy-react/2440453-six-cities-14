@@ -4,10 +4,12 @@ import OfferCard from '../offer-card/offer-card';
 
 type TOfferListProps = {
   offersList: TOfferList;
+  handleMouseEnter: (id: number) => void;
+  handleMouseLeave: () => void;
 }
 
-function OfferCardList ({offersList}: TOfferListProps): JSX.Element {
-  const offers = offersList.map((item) => <OfferCard {...item} key={item.id}/>);
+function OfferCardList ({offersList, handleMouseEnter, handleMouseLeave}: TOfferListProps): JSX.Element {
+  const offers = offersList.map((item) => <OfferCard offer={item} key={item.id} onMouseEnter={() => handleMouseEnter(item.id)} onMouseLeave={handleMouseLeave}/>);
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>

@@ -1,5 +1,5 @@
 import MainPage from '../../pages/main-page/main-page';
-import { TOfferList, TReviewList } from '../../types';
+import { TOfferList } from '../../types';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import LoginPage from '../../pages/login-page/login-page';
 import FavoritesPage from '../../pages/favorites-page/favorites-page';
@@ -10,10 +10,9 @@ import { AuthorizationStatus, ROUTE_LIST } from '../../consts';
 
 type TAppProps = {
   offersList: TOfferList;
-  reviewsList: TReviewList;
 }
 
-function App ({offersList, reviewsList} : TAppProps): JSX.Element {
+function App ({offersList} : TAppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>

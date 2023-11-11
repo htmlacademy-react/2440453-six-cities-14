@@ -1,6 +1,6 @@
 import Header from '../../components/header/header';
 import NavigationTabs from '../../components/nav-tabs/nav-tabs';
-import OfferCardList from '../../components/offer-card-list/offer-card-list';
+import OfferListBlock from '../../components/offer-list-block/offer-list-block';
 import { TOfferList } from '../../types/offer';
 
 type TMainPageProps = {
@@ -14,14 +14,7 @@ function MainPage ({offersList}:TMainPageProps): JSX.Element {
       <Header/>
       <main className="page__main page__main--index">
         <NavigationTabs/>
-        <div className="cities">
-          <div className="cities__places-container container">
-            <OfferCardList offersList={offersList}/>
-            <div className="cities__right-section">
-              <section className="cities__map map"></section>
-            </div>
-          </div>
-        </div>
+        <OfferListBlock offersList={offersList}/>
       </main>
     </div>
   );
