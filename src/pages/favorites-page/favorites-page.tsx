@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import CityOfferList from '../../components/city-offer-list/city-offer-list';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
@@ -17,13 +18,16 @@ function FavoritesPage({offersList, cityList}: TFavoritesProps) : JSX.Element {/
     offersCityList = offersList.filter((offer) => offer.city.name === item);
     if (offersCityList.length > 0) {
       cities.push(
-        <CityOfferList cityName={item} offersList={offersCityList}/>
+        <CityOfferList cityName={item} key={item} offersList={offersCityList}/>
       );
     }
   });
 
   return (
     <div className="page">
+      <Helmet>
+        <title>{'6 cities - Избранное'}</title>
+      </Helmet>
       <Header/>
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">

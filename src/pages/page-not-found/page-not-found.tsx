@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import LogoFooter from '../../components/logo-footer/logo-footer';
 import { ROUTE_LIST } from '../../consts/const';
+import { Helmet } from 'react-helmet-async';
 
 function PageNotFound(): JSX.Element {//TODO навигацию с логином сюда тоже надо
   return (
     <div className="page page--gray page--login">
+      <Helmet>
+        <title>{'6 cities - страница 404'}</title>
+      </Helmet>
       <main className="page__main page__main--login">
         <div className="page__login-container container">
           <section className="login">
