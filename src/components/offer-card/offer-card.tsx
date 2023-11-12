@@ -3,8 +3,8 @@ import { TOffer } from '../../types/offer';
 type TOfferCardProps = {
   offer: TOffer;
   key: number;
-  onMouseEnter: React.MouseEventHandler;
-  onMouseLeave: React.MouseEventHandler;
+  onMouseEnter?: React.MouseEventHandler;
+  onMouseLeave?: React.MouseEventHandler;
 }
 
 function OfferCard({offer, key, onMouseEnter, onMouseLeave}: TOfferCardProps):JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
@@ -13,7 +13,7 @@ function OfferCard({offer, key, onMouseEnter, onMouseLeave}: TOfferCardProps):JS
   const classHiddenPremium = !isPremium ? ' visually-hidden' : '';
   const classNamePremium = `place-card__mark${classHiddenPremium}`;
   return (
-    <article className="cities__card place-card" key={key} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <article className="cities__card place-card" data-id={key} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div className={classNamePremium}>
         <span>Premium</span>
       </div>

@@ -1,6 +1,6 @@
-import { CITI_LIST } from '../consts/const';
+import { CITY_LIST } from '../consts';
 
-export type TCityName = typeof CITI_LIST[number];
+export type TCityName = typeof CITY_LIST[number];
 
 export type TLocation = {
     latitude: number;

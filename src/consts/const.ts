@@ -7,10 +7,10 @@ const ROUTE_LIST = {
 } as const;
 
 
-const CITI_LIST = ['Amsterdam', 'Brussels', 'Dusseldorf', 'Hamburg', 'Cologne', 'Paris'] as const;
+const CITY_LIST = ['Amsterdam', 'Brussels', 'Cologne', 'Dusseldorf', 'Hamburg', 'Paris'] as const;
 
 export {
   ROUTE_LIST,
-  CITI_LIST,
+  CITY_LIST,
 };
 
