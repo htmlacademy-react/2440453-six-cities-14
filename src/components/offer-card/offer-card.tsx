@@ -7,7 +7,7 @@ type TOfferCardProps = {
   onMouseLeave?: React.MouseEventHandler;
 }
 
-function OfferCard({offer, key, onMouseEnter, onMouseLeave}: TOfferCardProps):JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
+function OfferCard({offer, key, onMouseEnter, onMouseLeave}: TOfferCardProps) : JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
   const {title, previewImage, type, rating, price, isPremium} = offer;
   const ratPersent = +rating * 100 / 5.0; //? в общую функцию мб, пригодится для большого оффера
   const classHiddenPremium = !isPremium ? ' visually-hidden' : '';
