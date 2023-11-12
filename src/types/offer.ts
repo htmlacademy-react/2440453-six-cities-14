@@ -1,17 +1,4 @@
-import { CITY_LIST } from '../consts';
-
-export type TCityName = typeof CITY_LIST[number];
-
-export type TLocation = {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-}
-
-type TCity = {
-  location: TLocation;
-  name: TCityName;
-}
+import { TCity, TLocation } from '.';
 
 type THost = {
   avatarUrl: string;
@@ -20,23 +7,26 @@ type THost = {
   name: string;
 }
 
-export type TOffer = {
+export type TOfferLight = {
   title: string;
-  bedrooms?: number;
   location: TLocation;
-  description?: string;
-  goods?: string[];
-  host: THost;
+  description: string;
   id: number;
-  images?: string[];
   isFavorite: boolean;
   isPremium: boolean;
-  maxAdults?: number;
   previewImage: string;
   price: number;
   rating: number;
   type: string;
   city: TCity;
+}
+
+export type TOffer = TOfferLight & {
+  bedrooms: number;
+  goods: string[];
+  host: THost;
+  images: string[];
+  maxAdults: number;
 }
 
 export type TOfferList = TOffer[];
