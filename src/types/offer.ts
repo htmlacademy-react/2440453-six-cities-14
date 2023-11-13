@@ -1,13 +1,4 @@
-type TLocation = {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-}
-
-type TCity = {
-  location: TLocation;
-  name: string;
-}
+import { TCity, TLocation } from '.';
 
 type THost = {
   avatarUrl: string;
@@ -16,23 +7,26 @@ type THost = {
   name: string;
 }
 
-export type TOffer = {
+export type TOfferLight = {
   title: string;
-  bedrooms?: number;
-  location?: TLocation;
-  description?: string;
-  goods?: [string];
-  host?: THost;
-  id?: number;
-  images?: [string];
+  location: TLocation;
+  description: string;
+  id: number;
   isFavorite: boolean;
   isPremium: boolean;
-  maxAdults?: number;
   previewImage: string;
   price: number;
   rating: number;
   type: string;
-  city?: TCity;
+  city: TCity;
+}
+
+export type TOffer = TOfferLight & {
+  bedrooms: number;
+  goods: string[];
+  host: THost;
+  images: string[];
+  maxAdults: number;
 }
 
 export type TOfferList = TOffer[];

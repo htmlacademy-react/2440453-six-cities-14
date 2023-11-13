@@ -1,16 +1,26 @@
 import { TOffer } from '../../types/offer';
+import { Link } from 'react-router-dom';
+import { calcHiddenPremiumClass, calcRaitingPersent } from '../../utils';
 
-function OfferCard({title, previewImage, type, rating, price}: TOffer):JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
-  const ratPersent = +rating * 100 / 5.0; //? в общую функцию мб, пригодится для большого оффера
+type TOfferCardProps = {
+  offer: TOffer;
+  onMouseEnter?: React.MouseEventHandler;
+  onMouseLeave?: React.MouseEventHandler;
+}
+
+function OfferCard({offer, onMouseEnter, onMouseLeave}: TOfferCardProps) : JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
+  const {title, previewImage, type, rating, price, isPremium, id} = offer;
+  const ratPersent = calcRaitingPersent(rating);
+  const classNamePremium = calcHiddenPremiumClass(isPremium, 'place-card__mark');
   return (
-    <article className="cities__card place-card">
-      <div className="place-card__mark">
+    <article className="cities__card place-card" data-id={id} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <div className={classNamePremium}>
         <span>Premium</span>
       </div>
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${id}`}>
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image"/>
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -32,7 +42,9 @@ function OfferCard({title, previewImage, type, rating, price}: TOffer):JSX.Eleme
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{title}</a>
+          <Link to={`/offer/${id}`}>
+            {title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
