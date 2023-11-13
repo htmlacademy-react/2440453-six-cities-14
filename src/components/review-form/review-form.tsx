@@ -1,56 +1,25 @@
-import { useState } from 'react';
-import { Raiting } from '../../consts';
+import { useState, ChangeEvent } from 'react';
+import { RATING } from '../../consts';
+import RaitingInput from './rating-input';
 
-function ReviewForm() : JSX.Element {//TODO: отрисовывать звезды как компоненты?
-  const [reviewText, setReviewText] = useState(null);
-  const [raiting, setRaiting] = useState(Raiting['no raiting']);
+function ReviewForm() : JSX.Element {//TODO: повторное нажатие + валидация введенных данных
+  const [reviewText, setReviewText] = useState('');
+  const [rating, setRating] = useState('');
 
-  function onTextChange(e) {
+  function onTextChange(e:ChangeEvent<HTMLTextAreaElement>) {
     setReviewText(e.target.value);
   }
 
-  function onClick(e) {
-    setRaiting(e.target.value);
+  function handleRatingChange(e:ChangeEvent<HTMLInputElement>) {
+    setRating(e.target.value);
   }
 
+  const ratings = Object.entries(RATING).reverse().map(([key, value]) => (<RaitingInput key={value} value={value.toString()} title={key.toString()} checked={value.toString() === rating} onChange={handleRatingChange}/>));
   return (
     <form className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
-        <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" onClick={onClick}/>
-        <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
-          <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
-          </svg>
-        </label>
-
-        <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" onClick={onClick}/>
-        <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
-          <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
-          </svg>
-        </label>
-
-        <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio" onClick={onClick}/>
-        <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
-          <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
-          </svg>
-        </label>
-
-        <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio" onClick={onClick}/>
-        <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
-          <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
-          </svg>
-        </label>
-
-        <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" onClick={onClick}/>
-        <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
-          <svg className="form__star-image" width="37" height="33">
-            <use xlinkHref="#icon-star"></use>
-          </svg>
-        </label>
+        {ratings}
       </div>
       <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={onTextChange}>{reviewText}</textarea>
       <div className="reviews__button-wrapper">

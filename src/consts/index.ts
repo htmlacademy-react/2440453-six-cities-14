@@ -1,10 +1,10 @@
 import { AuthorizationStatus } from './auth.enum';
-import { Raiting } from './raiting.enum';
+import { RATING } from './raiting';
 import { ROUTE_LIST, CITY_LIST } from './const';
 
 export {
   AuthorizationStatus,
-  Raiting,
+  RATING,
   ROUTE_LIST,
   CITY_LIST,
 };

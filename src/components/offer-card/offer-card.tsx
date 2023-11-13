@@ -1,20 +1,19 @@
 import { TOffer } from '../../types/offer';
 import { Link } from 'react-router-dom';
+import { calcHiddenPremiumClass, calcRaitingPersent } from '../../utils';
 
 type TOfferCardProps = {
   offer: TOffer;
-  key: number;
   onMouseEnter?: React.MouseEventHandler;
   onMouseLeave?: React.MouseEventHandler;
 }
 
-function OfferCard({offer, key, onMouseEnter, onMouseLeave}: TOfferCardProps) : JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
+function OfferCard({offer, onMouseEnter, onMouseLeave}: TOfferCardProps) : JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
   const {title, previewImage, type, rating, price, isPremium, id} = offer;
-  const ratPersent = +rating * 100 / 5.0; //? в общую функцию мб, пригодится для большого оффера
-  const classHiddenPremium = !isPremium ? ' visually-hidden' : '';
-  const classNamePremium = `place-card__mark${classHiddenPremium}`;
+  const ratPersent = calcRaitingPersent(rating);
+  const classNamePremium = calcHiddenPremiumClass(isPremium, 'place-card__mark');
   return (
-    <article className="cities__card place-card" data-id={key} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+    <article className="cities__card place-card" data-id={id} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div className={classNamePremium}>
         <span>Premium</span>
       </div>

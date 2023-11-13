@@ -9,7 +9,7 @@ type TOfferBlockProps = {
 }
 
 function OfferListBlock ({offersList}: TOfferBlockProps): JSX.Element {
-  const [activeOfferId, setActiveOfferId] = useState(null);
+  const [activeOfferId, setActiveOfferId] = useState(0);
 
 
   function handleMouseEnter(id:number) {
@@ -17,7 +17,7 @@ function OfferListBlock ({offersList}: TOfferBlockProps): JSX.Element {
   }
 
   function handleMouseLeave() {
-    setActiveOfferId(null);
+    setActiveOfferId(0);
   }
   // function handleMouseMove (e) {
   //   setActiveOfferId(e.target.value);
