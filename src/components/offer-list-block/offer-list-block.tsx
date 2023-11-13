@@ -10,7 +10,7 @@ type TOfferBlockProps = {
 
 function OfferListBlock ({offersList}: TOfferBlockProps): JSX.Element {
   const [activeOfferId, setActiveOfferId] = useState(0);
-
+  const strOfferId = activeOfferId.toString();
 
   function handleMouseEnter(id:number) {
     setActiveOfferId(id);
@@ -26,7 +26,7 @@ function OfferListBlock ({offersList}: TOfferBlockProps): JSX.Element {
     <div className="cities">
       <div className="cities__places-container container">
         <OfferCardList offersList={offersList} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
-        <Map/>
+        <Map activeOfferId={strOfferId}/>
       </div>
     </div>
   );
