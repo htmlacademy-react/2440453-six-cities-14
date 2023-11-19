@@ -1,33 +1,13 @@
-.cities__map {
-	
-}
-
-.cities__right-section {
-	display: -webkit-box;
+.map {
+  display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-flex: 1;
 	-ms-flex-positive: 1;
-	flex-grow: 1
-}
-
-.cities__right-section {
-	background-size: auto 119%;
-	background-repeat: no-repeat;
-	background-position: right 100%
-}
-
-.cities__right-section {
-  background-position: right center;
-  background-size: 100% auto
-}
-
-
-.map {
+	flex-grow: 1;
   -ms-flex-item-align: stretch;
 	align-self: stretch;
 	background-size: 682px auto;
 	background-repeat: no-repeat;
-	background-position: -170px center;
-
+	background-position: right center;
 }

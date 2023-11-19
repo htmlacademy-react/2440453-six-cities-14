@@ -572,6 +572,229 @@ const OFFERS_LIST: TOfferList = [
     },
     'id': 10
   },
+  {
+    'city': {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.37454,
+        'longitude': 4.897976,
+        'zoom': 13
+      }
+    },
+    'previewImage': 'https://14.react.pages.academy/static/offer/5.jpg',
+    'images': [
+      'https://14.react.pages.academy/static/offer/16.jpg',
+      'https://14.react.pages.academy/static/offer/13.jpg',
+      'https://14.react.pages.academy/static/offer/7.jpg',
+      'https://14.react.pages.academy/static/offer/6.jpg',
+      'https://14.react.pages.academy/static/offer/8.jpg',
+      'https://14.react.pages.academy/static/offer/20.jpg',
+      'https://14.react.pages.academy/static/offer/3.jpg',
+      'https://14.react.pages.academy/static/offer/9.jpg',
+      'https://14.react.pages.academy/static/offer/2.jpg',
+      'https://14.react.pages.academy/static/offer/10.jpg',
+      'https://14.react.pages.academy/static/offer/5.jpg',
+      'https://14.react.pages.academy/static/offer/12.jpg',
+      'https://14.react.pages.academy/static/offer/11.jpg',
+      'https://14.react.pages.academy/static/offer/17.jpg'
+    ],
+    'title': 'Amazing and Extremely Central Flat',
+    'isFavorite': false,
+    'isPremium': false,
+    'rating': 4.4,
+    'type': 'room',
+    'bedrooms': 1,
+    'maxAdults': 3,
+    'price': 246,
+    'goods': [
+      'Air conditioning',
+      'Laptop friendly workspace',
+      'Breakfast',
+      'Washer'
+    ],
+    'host': {
+      'id': 25,
+      'name': 'Angelina',
+      'isPro': true,
+      'avatarUrl': 'img/avatar-angelina.jpg'
+    },
+    'description': 'A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.',
+    'location': {
+      'latitude': 52.3909553943508,
+      'longitude': 4.85309666406198,
+      'zoom': 16
+    },
+    'id': 66
+  },
+  {
+    'city': {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.37454,
+        'longitude': 4.897976,
+        'zoom': 13
+      }
+    },
+    'previewImage': 'https://14.react.pages.academy/static/offer/6.jpg',
+    'images': [
+      'https://14.react.pages.academy/static/offer/10.jpg',
+      'https://14.react.pages.academy/static/offer/9.jpg',
+      'https://14.react.pages.academy/static/offer/3.jpg',
+      'https://14.react.pages.academy/static/offer/2.jpg',
+      'https://14.react.pages.academy/static/offer/13.jpg',
+      'https://14.react.pages.academy/static/offer/18.jpg',
+      'https://14.react.pages.academy/static/offer/5.jpg',
+      'https://14.react.pages.academy/static/offer/14.jpg',
+      'https://14.react.pages.academy/static/offer/4.jpg',
+      'https://14.react.pages.academy/static/offer/17.jpg',
+      'https://14.react.pages.academy/static/offer/15.jpg',
+      'https://14.react.pages.academy/static/offer/7.jpg',
+      'https://14.react.pages.academy/static/offer/16.jpg',
+      'https://14.react.pages.academy/static/offer/11.jpg'
+    ],
+    'title': 'The house among olive ',
+    'isFavorite': false,
+    'isPremium': true,
+    'rating': 3.5,
+    'type': 'apartment',
+    'bedrooms': 2,
+    'maxAdults': 9,
+    'price': 222,
+    'goods': [
+      'Breakfast',
+      'Laptop friendly workspace'
+    ],
+    'host': {
+      'id': 25,
+      'name': 'Angelina',
+      'isPro': true,
+      'avatarUrl': 'img/avatar-angelina.jpg'
+    },
+    'description': 'Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.',
+    'location': {
+      'latitude': 52.3609553943508,
+      'longitude': 4.85309666406198,
+      'zoom': 16
+    },
+    'id': 67
+  },
+  {
+    'city': {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.37454,
+        'longitude': 4.897976,
+        'zoom': 13
+      }
+    },
+    'previewImage': 'https://14.react.pages.academy/static/offer/7.jpg',
+    'images': [
+      'https://14.react.pages.academy/static/offer/5.jpg',
+      'https://14.react.pages.academy/static/offer/10.jpg',
+      'https://14.react.pages.academy/static/offer/19.jpg',
+      'https://14.react.pages.academy/static/offer/4.jpg',
+      'https://14.react.pages.academy/static/offer/12.jpg',
+      'https://14.react.pages.academy/static/offer/1.jpg',
+      'https://14.react.pages.academy/static/offer/8.jpg',
+      'https://14.react.pages.academy/static/offer/9.jpg',
+      'https://14.react.pages.academy/static/offer/17.jpg',
+      'https://14.react.pages.academy/static/offer/20.jpg',
+      'https://14.react.pages.academy/static/offer/3.jpg',
+      'https://14.react.pages.academy/static/offer/15.jpg',
+      'https://14.react.pages.academy/static/offer/7.jpg',
+      'https://14.react.pages.academy/static/offer/6.jpg'
+    ],
+    'title': 'House in countryside',
+    'isFavorite': false,
+    'isPremium': false,
+    'rating': 4.6,
+    'type': 'room',
+    'bedrooms': 1,
+    'maxAdults': 1,
+    'price': 177,
+    'goods': [
+      'Fridge',
+      'Baby seat',
+      'Towels',
+      'Air conditioning',
+      'Laptop friendly workspace',
+      'Breakfast',
+      'Washer'
+    ],
+    'host': {
+      'id': 25,
+      'name': 'Angelina',
+      'isPro': true,
+      'avatarUrl': 'img/avatar-angelina.jpg'
+    },
+    'description': 'Design interior in most sympathetic area! Complitely renovated, well-equipped, cosy studio in idyllic, over 100 years old wooden house. Calm street, fast connection to center and airport.',
+    'location': {
+      'latitude': 52.3909553943508,
+      'longitude': 4.929309666406198,
+      'zoom': 16
+    },
+    'id': 68
+  },
+  {
+    'city': {
+      'name': 'Amsterdam',
+      'location': {
+        'latitude': 52.37454,
+        'longitude': 4.897976,
+        'zoom': 13
+      }
+    },
+    'previewImage': 'https://14.react.pages.academy/static/offer/17.jpg',
+    'images': [
+      'https://14.react.pages.academy/static/offer/15.jpg',
+      'https://14.react.pages.academy/static/offer/13.jpg',
+      'https://14.react.pages.academy/static/offer/4.jpg',
+      'https://14.react.pages.academy/static/offer/1.jpg',
+      'https://14.react.pages.academy/static/offer/19.jpg',
+      'https://14.react.pages.academy/static/offer/18.jpg',
+      'https://14.react.pages.academy/static/offer/10.jpg',
+      'https://14.react.pages.academy/static/offer/9.jpg',
+      'https://14.react.pages.academy/static/offer/16.jpg',
+      'https://14.react.pages.academy/static/offer/3.jpg',
+      'https://14.react.pages.academy/static/offer/11.jpg',
+      'https://14.react.pages.academy/static/offer/5.jpg',
+      'https://14.react.pages.academy/static/offer/6.jpg',
+      'https://14.react.pages.academy/static/offer/20.jpg'
+    ],
+    'title': 'Loft Studio in the Central Area',
+    'isFavorite': false,
+    'isPremium': false,
+    'rating': 2.6,
+    'type': 'room',
+    'bedrooms': 1,
+    'maxAdults': 2,
+    'price': 229,
+    'goods': [
+      'Washer',
+      'Laptop friendly workspace',
+      'Towels',
+      'Baby seat',
+      'Breakfast',
+      'Washing machine',
+      'Dishwasher',
+      'Fridge',
+      'Coffee machine',
+      'Air conditioning'
+    ],
+    'host': {
+      'id': 25,
+      'name': 'Angelina',
+      'isPro': true,
+      'avatarUrl': 'img/avatar-angelina.jpg'
+    },
+    'description': 'Discover daily local life in city center, friendly neighborhood, clandestine casino, karaoke, old-style artisans, art gallery and artist studio downstairs.',
+    'location': {
+      'latitude': 52.3809553943508,
+      'longitude': 4.939309666406198,
+      'zoom': 16
+    },
+    'id': 69
+  },
 ];
 
 export default OFFERS_LIST;

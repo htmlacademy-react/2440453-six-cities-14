@@ -43,11 +43,11 @@ function Map({offers, activeOfferId}: TMapProps): JSX.Element {
           .addTo(map);
       });
     }
-  }, [map, offers, activeOfferId]);
+  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon]);
 
   return (
     <div
-      className="map cities__right-section"
+      className="map"
       data-id={activeOfferId}
       ref={mapRef}
     >
