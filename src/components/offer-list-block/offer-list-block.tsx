@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { TOfferList } from '../../types';
+import { TCityName, TOfferList } from '../../types';
 import Map from '../../components/map/map';
 import OfferCardList from '../offer-card-list/offer-card-list';
 
 
 type TOfferBlockProps = {
   offersList: TOfferList;
+  cityName: TCityName;
 }
 
-function OfferListBlock ({offersList}: TOfferBlockProps): JSX.Element {
-  const [activeOfferId, setActiveOfferId] = useState(0);
-  const strOfferId = activeOfferId.toString();
-
+function OfferListBlock ({offersList, cityName = 'Amsterdam'}: TOfferBlockProps): JSX.Element {
+  const [activeOfferId, setActiveOfferId] = useState<number>(0);
+  const selectedOffersList = offersList.filter((offer) => offer.city.name === cityName);
   function handleMouseEnter(id:number) {
     setActiveOfferId(id);
   }
@@ -25,8 +25,8 @@ function OfferListBlock ({offersList}: TOfferBlockProps): JSX.Element {
   return (
     <div className="cities">
       <div className="cities__places-container container">
-        <OfferCardList offersList={offersList} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
-        <Map activeOfferId={strOfferId}/>
+        <OfferCardList offersList={selectedOffersList} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
+        <Map offers={selectedOffersList} activeOfferId={activeOfferId}/>
       </div>
     </div>
   );
