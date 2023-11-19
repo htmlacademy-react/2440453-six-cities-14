@@ -1,11 +1,13 @@
+import { MAX_GALLERY_SIZE } from '../../consts';
+
 type TGalleryProps = {
-  images: string[] | undefined;
+  images?: string[];
 }
 
 function Gallery({images}: TGalleryProps) : JSX.Element { //TODO: делать ли что-то с разбиением? количество картинок по умолчанию?
   const imagesList : JSX.Element[] = [];
-  if (images !== undefined) {
-    const imagesCount = images.length > 6 ? 6 : images.length;
+  if (images) {
+    const imagesCount = images.length > MAX_GALLERY_SIZE ? MAX_GALLERY_SIZE : images.length;
     for (let i = 0; i < imagesCount; i++) {
       imagesList.push(
         <div className="offer__image-wrapper">
