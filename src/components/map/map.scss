@@ -1,4 +1,4 @@
-.map {
+.cities__map {
   display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -10,4 +10,15 @@
 	background-size: 682px auto;
 	background-repeat: no-repeat;
 	background-position: right center;
+}
+
+.offers__map {
+	width: 1144px;
+	height: 579px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	background-repeat: no-repeat;
+	background-size: 1144px auto;
+	background-position: center top;
 }
