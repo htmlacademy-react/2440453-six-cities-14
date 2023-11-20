@@ -3,8 +3,8 @@ function calcHiddenPremiumClass(isPremium: boolean, className: string): string {
   return (`${className}${classHiddenPremium}`);
 }
 
-function calcRaitingPersent(rating:number): number {
-  return (+rating * 100 / 5.0);
+function calcRaitingPersent(rating:number): string {
+  return (`${Math.round(+rating * 100 / 5)}%`);
 }
 
 export { calcHiddenPremiumClass, calcRaitingPersent };
