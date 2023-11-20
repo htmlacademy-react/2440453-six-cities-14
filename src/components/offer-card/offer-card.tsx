@@ -11,7 +11,6 @@ type TOfferCardProps = {
 function OfferCard({offer, onMouseEnter, onMouseLeave}: TOfferCardProps) : JSX.Element {//TODO: премиум и favourites добавить как дойдем до классов
   const {title, previewImage, type, rating, price, isPremium, id} = offer;
   const ratPersent = calcRaitingPersent(rating);
-  console.log(ratPersent);
   const classNamePremium = calcHiddenPremiumClass(isPremium, 'place-card__mark');
   return (
     <article className="cities__card place-card" data-id={id} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
