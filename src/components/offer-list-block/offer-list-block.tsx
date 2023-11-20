@@ -26,7 +26,7 @@ function OfferListBlock ({offersList, cityName = 'Amsterdam'}: TOfferBlockProps)
     <div className="cities">
       <div className="cities__places-container container">
         <OfferCardList offersList={selectedOffersList} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
-        <Map offers={selectedOffersList} activeOfferId={activeOfferId}/>
+        <Map offers={selectedOffersList} activeOfferId={activeOfferId} className='cities'/>
       </div>
     </div>
   );

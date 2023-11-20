@@ -3,11 +3,11 @@ import { ROUTE_LIST } from '../../consts/const';
 import { TOfferList } from '../../types';
 import OfferPage from '../../pages/offer-page/offer-page';
 
-type PrivateRouteProps = {
+type TOfferRouteProps = {
   offersList: TOfferList;
 }
 
-function OfferRoute({offersList}: PrivateRouteProps): JSX.Element {
+function OfferRoute({offersList}: TOfferRouteProps): JSX.Element {
   const {id} = useParams();
   let numId = 0;
   if (id === undefined) {

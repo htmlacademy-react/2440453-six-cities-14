@@ -6,7 +6,7 @@ function ReviewForm() : JSX.Element {//TODO: повторное нажатие +
   const [reviewText, setReviewText] = useState('');
   const [rating, setRating] = useState('');
 
-  function onTextChange(e:ChangeEvent<HTMLTextAreaElement>) {
+  function handleTextChange(e:ChangeEvent<HTMLTextAreaElement>) {
     setReviewText(e.target.value);
   }
 
@@ -21,7 +21,7 @@ function ReviewForm() : JSX.Element {//TODO: повторное нажатие +
       <div className="reviews__rating-form form__rating">
         {ratings}
       </div>
-      <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={onTextChange}>{reviewText}</textarea>
+      <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" onChange={handleTextChange}>{reviewText}</textarea>
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
