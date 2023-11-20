@@ -15,7 +15,7 @@ const REVIEW_LIST: TReviewList = [
     'offerId': 1,
   },
   {
-    'id': 1,
+    'id': 3,
     'user': {
       'id': 19,
       'isPro': false,
