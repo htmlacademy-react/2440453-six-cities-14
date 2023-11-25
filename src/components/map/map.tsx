@@ -6,17 +6,16 @@ import leaflet from 'leaflet';
 import { DEFAULT_CITY, URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from '../../consts';
 import { TOfferList } from '../../types';
 
-//"cities__right-section"
-//<section className="cities__map map"></section>
-
 type TMapProps = {
   activeOfferId: number;
   offers: TOfferList;
+  className: string;
 };
 
-function Map({offers, activeOfferId}: TMapProps): JSX.Element {
+function Map({offers, activeOfferId, className}: TMapProps): JSX.Element {
   const mapRef = useRef(null);
   const map = useMap(mapRef, DEFAULT_CITY);
+  const fullClassName = `${className}__map`;
 
   const defaultCustomIcon = leaflet.icon({
     iconUrl: URL_MARKER_DEFAULT,
@@ -43,11 +42,11 @@ function Map({offers, activeOfferId}: TMapProps): JSX.Element {
           .addTo(map);
       });
     }
-  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon]);
+  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon]); //? можно ли избавиться как то от зависимостей?
 
   return (
     <div
-      className="map"
+      className={fullClassName}
       data-id={activeOfferId}
       ref={mapRef}
     >

@@ -16,7 +16,7 @@ function useMap(mapRef: React.MutableRefObject<null>, city: TCity) {
         zoom: city.location.zoom,
       });
 
-      leaflet
+      leaflet //? вроде хочется вынести в константы, но тогда попадет в зависимости
         .tileLayer(
           'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
           {

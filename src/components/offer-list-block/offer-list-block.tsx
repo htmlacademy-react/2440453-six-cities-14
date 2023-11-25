@@ -9,7 +9,7 @@ type TOfferBlockProps = {
   cityName: TCityName;
 }
 
-function OfferListBlock ({offersList, cityName = 'Amsterdam'}: TOfferBlockProps): JSX.Element {
+function OfferListBlock ({offersList, cityName}: TOfferBlockProps): JSX.Element {
   const [activeOfferId, setActiveOfferId] = useState<number>(0);
   const selectedOffersList = offersList.filter((offer) => offer.city.name === cityName);
   function handleMouseEnter(id:number) {
@@ -26,7 +26,7 @@ function OfferListBlock ({offersList, cityName = 'Amsterdam'}: TOfferBlockProps)
     <div className="cities">
       <div className="cities__places-container container">
         <OfferCardList offersList={selectedOffersList} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
-        <Map offers={selectedOffersList} activeOfferId={activeOfferId}/>
+        <Map offers={selectedOffersList} activeOfferId={activeOfferId} className='cities'/>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ function MainPage ({offersList}:TMainPageProps): JSX.Element {
       <Header/>
       <main className="page__main page__main--index">
         <NavigationTabs/>
-        <OfferListBlock offersList={offersList}/>
+        <OfferListBlock offersList={offersList} cityName='Amsterdam'/>
       </main>
     </div>
   );

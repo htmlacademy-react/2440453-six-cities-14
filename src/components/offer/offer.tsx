@@ -3,7 +3,11 @@ import Gallery from '../gallery/gallery';
 import NearbyPlaces from '../../components/nerby-places/nearby-places';
 import OfferGoods from '../offer-goods/offer-goods';
 import OfferHost from '../offer-host/offer-host';
-import OfferReviews from '../offer-reviews/offer-reviews';
+import OfferReviewList from '../offer-review-list/offer-review-list';
+import REVIEW_LIST from '../../mocks/reviews';
+import Map from '../map/map';
+import { calcHiddenPremiumClass, calcRaitingPersent } from '../../utils';
+import OFFERS_LIST from '../../mocks/offers';
 //TODO: выглядит не вполне логично, напрягает. Подумать над корректным разделением.
 
 type TOfferProps = {
@@ -11,9 +15,9 @@ type TOfferProps = {
 }
 function Offer({offer}: TOfferProps) : JSX.Element {
   const {title, type, rating, price, bedrooms, maxAdults, isPremium, images} = offer;
-  const ratPersent = +rating * 100 / 5.0; //? в общую функцию мб, пригодится для большого оффера
-  const classHiddenPremium = !isPremium ? ' visually-hidden' : '';
-  const classNamePremium = `offer__mark${classHiddenPremium}`;
+  const ratPersent = calcRaitingPersent(rating);
+  const classNamePremium = calcHiddenPremiumClass(isPremium, 'offer__mark');
+  const nearbyOffers = OFFERS_LIST.filter((item) => item.city.name === offer.city.name);
   return (
     <main className="page__main page__main--offer">
       <section className="offer">
@@ -58,12 +62,12 @@ function Offer({offer}: TOfferProps) : JSX.Element {
             </div>
             <OfferGoods/>
             <OfferHost/>
-            <OfferReviews/>
+            <OfferReviewList reviewsList={REVIEW_LIST}/>
           </div>
         </div>
-        <section className="offer__map map"></section>
+        <Map offers={nearbyOffers} activeOfferId={0} className='offers'/>
       </section>
-      <NearbyPlaces/>
+      <NearbyPlaces offersList={nearbyOffers}/>
     </main>
   );
 }

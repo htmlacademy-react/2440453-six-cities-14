@@ -3,7 +3,7 @@ import { TCityName } from '../../types';
 type LocationItemProps = {
   cityName: TCityName;
 }
-function LocationItem({cityName}:LocationItemProps): JSX.Element { //правильно разобрать свойства
+function LocationItem({cityName}:LocationItemProps): JSX.Element {
   return (
     <div className="favorites__locations locations locations--current">
       <div className="locations__item">

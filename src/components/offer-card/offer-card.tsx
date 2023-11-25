@@ -37,7 +37,7 @@ function OfferCard({offer, onMouseEnter, onMouseLeave}: TOfferCardProps) : JSX.E
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${ratPersent}%`}}></span>
+            <span style={{width: ratPersent}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
