@@ -1,10 +1,10 @@
 import { TOfferList } from '../../types';
 import OfferCard from '../offer-card/offer-card';
 
-//TODO: вроде подойдет оффер кард
 type TNearbyPlacesProps = {
   offersList: TOfferList;
 }
+
 function NearbyPlaces({offersList}: TNearbyPlacesProps) : JSX.Element {
   const offers = offersList.map((offer) => <OfferCard offer={offer} key={offer.id}/>);
   return (

@@ -32,7 +32,7 @@ function Map({offers, activeOfferId, className, cityName}: TMapProps): JSX.Eleme
   });
 
   useEffect(() => {
-    if (map && city) {
+    if (city && map) {
       const loc: leaflet.LatLngExpression = {
         lat: city.location.latitude,
         lng: city.location.longitude};
