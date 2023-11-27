@@ -1,21 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
-import { TCity } from '../types';
 import leaflet from 'leaflet';
 
-function useMap(mapRef: React.MutableRefObject<null>, city: TCity) {
+function useMap(mapRef: React.MutableRefObject<null>) {
   const [map, setMap] = useState<leaflet.Map|null>(null);
   const isRenderedRef = useRef(false);
 
   useEffect(() => {
+    let instance: leaflet.Map;
     if (mapRef.current !== null && !isRenderedRef.current) {
-      const instance: leaflet.Map = leaflet.map(mapRef.current, {
-        center: {
-          lat: city.location.latitude,
-          lng: city.location.longitude,
-        },
-        zoom: city.location.zoom,
-      });
-
+      instance = leaflet.map(mapRef.current);
       leaflet //? вроде хочется вынести в константы, но тогда попадет в зависимости
         .tileLayer(
           'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
@@ -25,10 +18,10 @@ function useMap(mapRef: React.MutableRefObject<null>, city: TCity) {
         )
         .addTo(instance);
 
-      setMap(instance);
       isRenderedRef.current = true;
+      setMap(instance);
     }
-  }, [mapRef, city]);
+  }, [mapRef]);
 
   return map;
 }
