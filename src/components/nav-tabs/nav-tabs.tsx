@@ -1,40 +1,24 @@
-function NavigationTabs() : JSX.Element {//TODO: элемент - в отдельный компонент или прям тут? Кажется достаточно тут
+import { TCityName } from '../../types';
+import NavigationCity from './nav-city';
+import { CITY_LIST } from '../../consts';
+
+type TNavProps = {
+  selectedCity: TCityName;
+  onClick: () => void;
+}
+
+function NavigationTabs({selectedCity, onClick}: TNavProps) : JSX.Element {
+  const cities = CITY_LIST.map((city) => {
+    const isSelected = city === selectedCity;
+    return(<NavigationCity isSelected={isSelected} city={city} onClick={onClick} key={city}/>);
+  });
   return (
     <>
       <h1 className="visually-hidden">Cities</h1>
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Paris</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Cologne</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Brussels</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item tabs__item--active">
-                <span>Amsterdam</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Hamburg</span>
-              </a>
-            </li>
-            <li className="locations__item">
-              <a className="locations__item-link tabs__item" href="#">
-                <span>Dusseldorf</span>
-              </a>
-            </li>
+            {cities}
           </ul>
         </section>
       </div>
