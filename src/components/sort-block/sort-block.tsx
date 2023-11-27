@@ -1,16 +1,14 @@
 import { SORTING_TYPES } from '../../consts';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { changeSortItem } from '../../store/action';
 import { TSortItem } from '../../types';
 import SortItem from './sort-item';
 
-function SortBlock() : JSX.Element {
-  const dispatch = useAppDispatch();
-  const handleItemClick = (sortItem: TSortItem) => {
-    dispatch(changeSortItem({item: sortItem}));
-  };
-  const selectedSortItem = useAppSelector((state) => state.sortItem);
-  const sortItems = SORTING_TYPES.map((item, i) => <SortItem name={item} tabIndex={i} isSelected={item === selectedSortItem} key={item} onClick={handleItemClick}/>);
+type TSortProps = {
+  selectedSortItem: TSortItem;
+  onClick: (sortItem:TSortItem)=>void;
+}
+
+function SortBlock({selectedSortItem, onClick}:TSortProps) : JSX.Element {
+  const sortItems = SORTING_TYPES.map((item, i) => <SortItem name={item} tabIndex={i} isSelected={item === selectedSortItem} key={item} onClick={onClick}/>);
   return (
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by </span>
