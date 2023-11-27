@@ -5,7 +5,7 @@ import { TState } from '../types';
 import OFFERS_LIST from '../mocks/offers';
 
 const initialState: TState = {
-  city: CITY_LIST[5],
+  city: CITY_LIST[0],
   offers: [],
   sortItem: SORTING_TYPES[0],
 };
