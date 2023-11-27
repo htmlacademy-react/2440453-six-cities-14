@@ -1,5 +1,4 @@
 import MainPage from '../../pages/main-page/main-page';
-import { TOfferList } from '../../types';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import LoginPage from '../../pages/login-page/login-page';
 import FavoritesPage from '../../pages/favorites-page/favorites-page';
@@ -8,12 +7,16 @@ import PrivateRoute from '../private-route/private-route';
 import { AuthorizationStatus, CITY_LIST, ROUTE_LIST } from '../../consts';
 import OfferRoute from '../offer-route/offer-route';
 import { HelmetProvider } from 'react-helmet-async';
+import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
+import { fillOffers } from '../../store/action';
 
-type TAppProps = {
-  offersList: TOfferList;
-}
 
-function App ({offersList} : TAppProps): JSX.Element {
+function App (): JSX.Element {
+  const offersList = useAppSelector((state) => state.offers);
+  const dispatch = useAppDispatch();
+  if (offersList.length === 0) {
+    dispatch(fillOffers());
+  }
   return (
     <HelmetProvider>
       <BrowserRouter>

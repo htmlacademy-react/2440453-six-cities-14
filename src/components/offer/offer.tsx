@@ -65,7 +65,7 @@ function Offer({offer}: TOfferProps) : JSX.Element {
             <OfferReviewList reviewsList={REVIEW_LIST}/>
           </div>
         </div>
-        <Map offers={nearbyOffers} activeOfferId={0} className='offers'/>
+        <Map offers={nearbyOffers} activeOfferId={0} className='offers' cityName={offer.city.name}/>
       </section>
       <NearbyPlaces offersList={nearbyOffers}/>
     </main>
