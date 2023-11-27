@@ -2,20 +2,22 @@ import './map.scss';
 import { useRef, useEffect } from 'react';
 import useMap from '../../hooks/use-map';
 import 'leaflet/dist/leaflet.css';
-import leaflet from 'leaflet';
-import { DEFAULT_CITY, URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from '../../consts';
-import { TOfferList } from '../../types';
+import leaflet, { layerGroup } from 'leaflet';
+import { CITIES_LIST, URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from '../../consts';
+import { TCityName, TOfferList } from '../../types';
 
 type TMapProps = {
   activeOfferId: number;
   offers: TOfferList;
   className: string;
+  cityName: TCityName;
 };
 
-function Map({offers, activeOfferId, className}: TMapProps): JSX.Element {
+function Map({offers, activeOfferId, className, cityName}: TMapProps): JSX.Element {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, DEFAULT_CITY);
+  const map = useMap(mapRef);
   const fullClassName = `${className}__map`;
+  const city = CITIES_LIST.find((item) => item.name === cityName);
 
   const defaultCustomIcon = leaflet.icon({
     iconUrl: URL_MARKER_DEFAULT,
@@ -30,7 +32,16 @@ function Map({offers, activeOfferId, className}: TMapProps): JSX.Element {
   });
 
   useEffect(() => {
+    if (map && city) {
+      const loc: leaflet.LatLngExpression = {
+        lat: city.location.latitude,
+        lng: city.location.longitude};
+      map.setView(loc, city.location.zoom);
+    }
+  }, [map, city]);
+  useEffect(() => {
     if (map) {
+      const markerLayer = layerGroup().addTo(map);
       offers.forEach((offer) => {
         leaflet
           .marker({
@@ -39,10 +50,10 @@ function Map({offers, activeOfferId, className}: TMapProps): JSX.Element {
           }, {
             icon: offer.id === activeOfferId ? currentCustomIcon : defaultCustomIcon,
           })
-          .addTo(map);
+          .addTo(markerLayer);
       });
     }
-  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon]); //? можно ли избавиться как то от зависимостей?
+  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon, cityName]); //? можно ли избавиться как то от зависимостей?
 
   return (
     <div

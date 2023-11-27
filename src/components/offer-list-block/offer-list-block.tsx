@@ -19,14 +19,12 @@ function OfferListBlock ({offersList, cityName}: TOfferBlockProps): JSX.Element 
   function handleMouseLeave() {
     setActiveOfferId(0);
   }
-  // function handleMouseMove (e) {
-  //   setActiveOfferId(e.target.value);
-  // }
-  return (
+
+  return ( //TODO: Заменить карту на статичное изображение
     <div className="cities">
       <div className="cities__places-container container">
-        <OfferCardList offersList={selectedOffersList} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
-        <Map offers={selectedOffersList} activeOfferId={activeOfferId} className='cities'/>
+        <OfferCardList offersList={selectedOffersList} city={cityName} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave}/>
+        <Map offers={selectedOffersList} activeOfferId={activeOfferId} className='cities' cityName={cityName}/>
       </div>
     </div>
   );
