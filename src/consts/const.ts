@@ -8,6 +8,10 @@ const ROUTE_LIST = {
   'Offer' : '/offer/:id',
 } as const;
 
+const SORTING_TYPES = [
+  'Popular', 'Price: low to high', 'Price: high to low', 'Top rated first'
+] as const;
+
 
 const CITY_LIST = ['Amsterdam', 'Brussels', 'Cologne', 'Dusseldorf', 'Hamburg', 'Paris'] as const;
 
@@ -66,6 +70,7 @@ export {
   ROUTE_LIST,
   CITY_LIST,
   CITIES_LIST,
+  SORTING_TYPES,
 };
 
 export const URL_MARKER_DEFAULT = '/img/pin.svg';

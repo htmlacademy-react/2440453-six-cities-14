@@ -3,7 +3,7 @@ import { TUser, TUserAuthorisation } from './user';
 import { TReview, TReviewList } from './review';
 import { TLocation } from './location';
 import { TCity, TCityName } from './city';
-import { TState, TAppDispatch } from './state';
+import { TState, TAppDispatch, TSortItem } from './state';
 
 export type {
   TOffer,
@@ -18,5 +18,6 @@ export type {
   TCity,
   TState,
   TAppDispatch,
+  TSortItem,
 };
 

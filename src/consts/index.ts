@@ -1,6 +1,6 @@
 import { AuthorizationStatus } from './auth.enum';
 import { RATING } from './raiting';
-import { ROUTE_LIST, CITY_LIST, CITIES_LIST, URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from './const';
+import { ROUTE_LIST, CITY_LIST, CITIES_LIST, URL_MARKER_DEFAULT, URL_MARKER_CURRENT, SORTING_TYPES } from './const';
 import { MAX_GALLERY_SIZE } from './max-gallery-size';
 
 export {
@@ -12,4 +12,5 @@ export {
   CITIES_LIST,
   URL_MARKER_DEFAULT,
   URL_MARKER_CURRENT,
+  SORTING_TYPES,
 };
