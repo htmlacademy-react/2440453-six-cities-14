@@ -4,7 +4,7 @@ import { CITY_LIST } from '../../consts';
 
 type TNavProps = {
   selectedCity: TCityName;
-  onClick: () => void;
+  onClick: (isSelected: boolean, newCity: TCityName) => void;
 }
 
 function NavigationTabs({selectedCity, onClick}: TNavProps) : JSX.Element {
