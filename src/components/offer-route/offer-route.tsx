@@ -9,15 +9,9 @@ type TOfferRouteProps = {
 
 function OfferRoute({offersList}: TOfferRouteProps): JSX.Element {
   const {id} = useParams();
-  let numId = 0;
-  if (id === undefined) {
-    numId = -1;
-  } else {
-    numId = Number.parseInt(id, 10);
-  }
-  const offer = offersList.find((item) => item.id === numId);
+  const offer = offersList.find((item) => item.id === id);
   return (
-    offer !== null && offer !== undefined ? <OfferPage offer={offer}/> : <Navigate to={ROUTE_LIST.Unknown}/>
+    offer ? <OfferPage offer={offer}/> : <Navigate to={ROUTE_LIST.Unknown}/>
   );
 }
 
