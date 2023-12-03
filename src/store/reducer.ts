@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { CITY_LIST, SORTING_TYPES } from '../consts';
+import { AuthorizationStatus, CITY_LIST, SORTING_TYPES } from '../consts';
 import { changeSortItem, fillOffers, selectCity, setOffersLoadedStatus } from './action';
 import { TState } from '../types';
 
@@ -8,6 +8,7 @@ const initialState: TState = {
   offers: [],
   sortItem: SORTING_TYPES[0],
   isOffersLoaded: false,
+  authorizationStatus: AuthorizationStatus.Unknown,
 };
 
 
