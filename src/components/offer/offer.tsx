@@ -14,7 +14,14 @@ type TOfferProps = {
   offer: TOffer;
 }
 function Offer({offer}: TOfferProps) : JSX.Element {
-  const {title, type, rating, price, bedrooms, maxAdults, isPremium, images} = offer;
+  const {title, type, rating, price, bedrooms, maxAdults, isPremium, images, goods, host, description} = offer;
+  let isGoods, isHost = false;
+  if (goods && goods.length > 0) {
+    isGoods = true;
+  }
+  if (host) {
+    isHost = true;
+  }
   const ratPersent = calcRaitingPersent(rating);
   const classNamePremium = calcHiddenPremiumClass(isPremium, 'offer__mark');
   const nearbyOffers = OFFERS_LIST.filter((item) => item.city.name === offer.city.name);
@@ -60,8 +67,8 @@ function Offer({offer}: TOfferProps) : JSX.Element {
               <b className="offer__price-value">&euro;{price}</b>
               <span className="offer__price-text">&nbsp;night</span>
             </div>
-            <OfferGoods/>
-            <OfferHost/>
+            {isGoods && <OfferGoods goodsList={goods}/>}
+            {isHost && <OfferHost host={host} text={title} desc={description}/>}
             <OfferReviewList reviewsList={REVIEW_LIST}/>
           </div>
         </div>

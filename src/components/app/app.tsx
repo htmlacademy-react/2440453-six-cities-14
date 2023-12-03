@@ -7,16 +7,15 @@ import PrivateRoute from '../private-route/private-route';
 import { AuthorizationStatus, CITY_LIST, ROUTE_LIST } from '../../consts';
 import OfferRoute from '../offer-route/offer-route';
 import { HelmetProvider } from 'react-helmet-async';
-import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
-import { fillOffers } from '../../store/action';
+import { useAppSelector } from '../../hooks/hooks';
+import { fetchOffersList} from '../../store/api-actions';
+import { store } from '../../store';
 
+store.dispatch(fetchOffersList());
 
 function App (): JSX.Element {
+
   const offersList = useAppSelector((state) => state.offers);
-  const dispatch = useAppDispatch();
-  if (offersList.length === 0) {
-    dispatch(fillOffers());
-  }
   return (
     <HelmetProvider>
       <BrowserRouter>

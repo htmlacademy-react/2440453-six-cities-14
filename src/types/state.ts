@@ -8,6 +8,7 @@ export type TState = {
   city: TCityName;
   offers: TOfferList;
   sortItem: TSortItem;
+  isOffersLoaded: boolean;
 }
 
 export type TAppDispatch = typeof store.dispatch;

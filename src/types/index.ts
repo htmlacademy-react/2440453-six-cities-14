@@ -1,4 +1,4 @@
-import { TOffer, TOfferList, TOfferLight } from './offer';
+import { TOffer, TOfferList, TOfferLight, THost } from './offer';
 import { TUser, TUserAuthorisation } from './user';
 import { TReview, TReviewList } from './review';
 import { TLocation } from './location';
@@ -19,5 +19,6 @@ export type {
   TState,
   TAppDispatch,
   TSortItem,
+  THost,
 };
 
