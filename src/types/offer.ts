@@ -1,6 +1,6 @@
 import { TCity, TLocation } from '.';
 
-type THost = {
+export type THost = {
   avatarUrl: string;
   id: number;
   isPro: boolean;
@@ -10,8 +10,7 @@ type THost = {
 export type TOfferLight = {
   title: string;
   location: TLocation;
-  description: string;
-  id: number;
+  id: string;
   isFavorite: boolean;
   isPremium: boolean;
   previewImage: string;
@@ -22,11 +21,12 @@ export type TOfferLight = {
 }
 
 export type TOffer = TOfferLight & {
-  bedrooms: number;
-  goods: string[];
-  host: THost;
-  images: string[];
-  maxAdults: number;
+  bedrooms?: number;
+  goods?: string[];
+  host?: THost;
+  images?: string[];
+  maxAdults?: number;
+  description?: string;
 }
 
 export type TOfferList = TOffer[];
