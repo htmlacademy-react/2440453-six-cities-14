@@ -1,5 +1,3 @@
-import { AuthorizationStatus } from '../consts';
-
 export type TUser = {
   'avatarUrl': string;
   'id': number;
@@ -7,9 +5,15 @@ export type TUser = {
   'name': string;
 };
 
-export type TUserAuthorisation = TUser & {
+export type TUserData = {
+  'email': string;
+  'password': string;
+};
+
+export type TAuthorisation = {
   'email': string;
   'token': string;
 };
 
-export type TAuthorisation = typeof keyof AuthorizationStatus;
+export type TUserAuthorisation = TUser & TAuthorisation;
+
