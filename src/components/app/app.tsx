@@ -8,10 +8,11 @@ import { AuthorizationStatus, CITY_LIST, ROUTE_LIST } from '../../consts';
 import OfferRoute from '../offer-route/offer-route';
 import { HelmetProvider } from 'react-helmet-async';
 import { useAppSelector } from '../../hooks/hooks';
-import { fetchOffersList} from '../../store/api-actions';
+import { checkLogin, fetchOffersList} from '../../store/api-actions';
 import { store } from '../../store';
 
 store.dispatch(fetchOffersList());
+store.dispatch(checkLogin());
 
 function App (): JSX.Element {
 

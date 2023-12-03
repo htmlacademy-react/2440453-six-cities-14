@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { AuthorizationStatus, CITY_LIST, SORTING_TYPES } from '../consts';
-import { changeSortItem, fillOffers, selectCity, setOffersLoadedStatus } from './action';
+import { changeSortItem, fillOffers, selectCity, setAuthorization, setOffersLoadedStatus } from './action';
 import { TState } from '../types';
 
 const initialState: TState = {
@@ -24,6 +24,9 @@ const reducer = createReducer(initialState, (builder) => {
   });
   builder.addCase(setOffersLoadedStatus, (state, action) => {
     state.isOffersLoaded = action.payload;
+  });
+  builder.addCase(setAuthorization, (state, action) => {
+    state.authorizationStatus = action.payload;
   });
 }
 );
