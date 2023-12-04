@@ -5,7 +5,15 @@ export type TUser = {
   'name': string;
 };
 
-export type TUserAuthorisation = TUser & {
+export type TUserData = {
+  'email': string;
+  'password': string;
+};
+
+export type TAuthorisation = {
   'email': string;
   'token': string;
 };
+
+export type TUserAuthorisation = TUser & TAuthorisation;
+

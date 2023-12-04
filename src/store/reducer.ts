@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { CITY_LIST, SORTING_TYPES } from '../consts';
-import { changeSortItem, fillOffers, selectCity, setOffersLoadedStatus } from './action';
+import { AuthorizationStatus, CITY_LIST, SORTING_TYPES } from '../consts';
+import { changeSortItem, fillOffers, selectCity, setAuthorization, setOffersLoadedStatus } from './action';
 import { TState } from '../types';
 
 const initialState: TState = {
@@ -8,6 +8,7 @@ const initialState: TState = {
   offers: [],
   sortItem: SORTING_TYPES[0],
   isOffersLoaded: false,
+  authorizationStatus: AuthorizationStatus.Unknown,
 };
 
 
@@ -23,6 +24,9 @@ const reducer = createReducer(initialState, (builder) => {
   });
   builder.addCase(setOffersLoadedStatus, (state, action) => {
     state.isOffersLoaded = action.payload;
+  });
+  builder.addCase(setAuthorization, (state, action) => {
+    state.authorizationStatus = action.payload;
   });
 }
 );

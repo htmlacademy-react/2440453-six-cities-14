@@ -1,5 +1,5 @@
 import { TOffer, TOfferList, TOfferLight, THost } from './offer';
-import { TUser, TUserAuthorisation } from './user';
+import { TUser, TUserAuthorisation, TAuthorisation, TUserData } from './user';
 import { TReview, TReviewList } from './review';
 import { TLocation } from './location';
 import { TCity, TCityName } from './city';
@@ -20,5 +20,7 @@ export type {
   TAppDispatch,
   TSortItem,
   THost,
+  TAuthorisation,
+  TUserData,
 };
 

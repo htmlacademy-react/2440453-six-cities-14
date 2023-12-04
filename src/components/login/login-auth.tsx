@@ -1,4 +1,4 @@
-function NavigationBar() : JSX.Element {
+function LogIn() : JSX.Element {
   return (
     <nav className="header__nav">
       <ul className="header__nav-list">
@@ -20,4 +20,4 @@ function NavigationBar() : JSX.Element {
   );
 }
 
-export default NavigationBar;
+export default LogIn;

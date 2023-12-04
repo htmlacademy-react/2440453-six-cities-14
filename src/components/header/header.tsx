@@ -1,5 +1,5 @@
 import { ROUTE_LIST } from '../../consts';
-import LoginTab from '../login-tab/login-tab';
+import LoginTab from '../login/login-tab';
 import { Link } from 'react-router-dom';
 
 function Header():JSX.Element { //TODO не отображать для login-page

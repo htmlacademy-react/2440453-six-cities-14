@@ -9,7 +9,7 @@ import { sortOffersList } from '../../utils/offer';
 type TOfferListProps = {
   offersList: TOfferList;
   city: TCityName;
-  handleMouseEnter: (id: number) => void;
+  handleMouseEnter: (id: string) => void;
   handleMouseLeave: () => void;
 }
 

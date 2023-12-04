@@ -1,6 +1,6 @@
 import { TCityName, TOfferList } from '../types';
 import { store } from '../store';
-import { SORTING_TYPES } from '../consts';
+import { SORTING_TYPES, AuthorizationStatus } from '../consts';
 
 export type TSortItem = typeof SORTING_TYPES[number];
 
@@ -9,6 +9,7 @@ export type TState = {
   offers: TOfferList;
   sortItem: TSortItem;
   isOffersLoaded: boolean;
+  authorizationStatus: AuthorizationStatus;
 }
 
 export type TAppDispatch = typeof store.dispatch;
