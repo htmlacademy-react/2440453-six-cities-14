@@ -7,7 +7,7 @@ import { CITIES_LIST, URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from '../../const
 import { TCityName, TOfferList } from '../../types';
 
 type TMapProps = {
-  activeOfferId: number;
+  activeOfferId: string | null;
   offers: TOfferList;
   className: string;
   cityName: TCityName;

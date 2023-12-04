@@ -10,14 +10,14 @@ type TOfferBlockProps = {
 }
 
 function OfferListBlock ({offersList, cityName}: TOfferBlockProps): JSX.Element {
-  const [activeOfferId, setActiveOfferId] = useState<number>(0);
+  const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
   const selectedOffersList = offersList.filter((offer) => offer.city.name === cityName);
-  function handleMouseEnter(id:number) {
+  function handleMouseEnter(id:string) {
     setActiveOfferId(id);
   }
 
   function handleMouseLeave() {
-    setActiveOfferId(0);
+    setActiveOfferId(null);
   }
 
   return ( //TODO: Заменить карту на статичное изображение
