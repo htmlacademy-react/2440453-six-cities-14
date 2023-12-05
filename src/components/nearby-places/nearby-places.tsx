@@ -1,12 +1,17 @@
+import { MAX_NEARBY_PLACES_COUNT } from '../../consts';
 import { TOfferList } from '../../types';
 import OfferCard from '../offer-card/offer-card';
 
 type TNearbyPlacesProps = {
-  offersList: TOfferList;
+  offersList: TOfferList | null;
 }
 
 function NearbyPlaces({offersList}: TNearbyPlacesProps) : JSX.Element {
-  const offers = offersList.map((offer) => <OfferCard offer={offer} key={offer.id}/>);
+  const offers = offersList !== null && offersList ? offersList.map((offer, i) => {
+    if(i < MAX_NEARBY_PLACES_COUNT) {
+      return <OfferCard offer={offer} key={offer.id}/>;
+    }
+  }) : '';
   return (
     <div className="container">
       <section className="near-places places">

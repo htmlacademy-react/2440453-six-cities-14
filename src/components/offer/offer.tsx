@@ -1,22 +1,22 @@
-import { TOffer } from '../../types';
+import { TOffer, TOfferList, TReviewList } from '../../types';
 import Gallery from '../gallery/gallery';
-import NearbyPlaces from '../../components/nerby-places/nearby-places';
+import NearbyPlaces from '../nearby-places/nearby-places';
 import OfferGoods from '../offer-goods/offer-goods';
 import OfferHost from '../offer-host/offer-host';
 import OfferReviewList from '../offer-review-list/offer-review-list';
-import REVIEW_LIST from '../../mocks/reviews';
 import Map from '../map/map';
 import { calcHiddenPremiumClass, calcRaitingPersent } from '../../utils';
-import OFFERS_LIST from '../../mocks/offers';
-//TODO: выглядит не вполне логично, напрягает. Подумать над корректным разделением.
+import { MAX_NEARBY_PLACES_COUNT } from '../../consts';
 
 type TOfferProps = {
   offer: TOffer;
+  reviews: TReviewList | null;
+  nearest: TOfferList | null;
 }
-function Offer({offer}: TOfferProps) : JSX.Element {
+function Offer({offer, reviews, nearest}: TOfferProps) : JSX.Element {
   const {title, type, rating, price, bedrooms, maxAdults, isPremium, images, goods, host, description} = offer;
   let isGoods, isHost = false;
-  if (goods && goods.length > 0) {
+  if (goods !== null && goods) {
     isGoods = true;
   }
   if (host) {
@@ -24,7 +24,15 @@ function Offer({offer}: TOfferProps) : JSX.Element {
   }
   const ratPersent = calcRaitingPersent(rating);
   const classNamePremium = calcHiddenPremiumClass(isPremium, 'offer__mark');
-  const nearbyOffers = OFFERS_LIST.filter((item) => item.city.name === offer.city.name);
+  const nearbyOffers: TOfferList = [offer];
+  if (nearest !== null && nearest) {
+    nearest.forEach((item, i) => {
+      if (i < MAX_NEARBY_PLACES_COUNT) {
+        nearbyOffers.push(item);
+      }
+    });
+  }
+  console.log(nearbyOffers.length);
   return (
     <main className="page__main page__main--offer">
       <section className="offer">
@@ -69,12 +77,12 @@ function Offer({offer}: TOfferProps) : JSX.Element {
             </div>
             {isGoods && <OfferGoods goodsList={goods}/>}
             {isHost && <OfferHost host={host} text={title} desc={description}/>}
-            <OfferReviewList reviewsList={REVIEW_LIST}/>
+            <OfferReviewList reviewsList={reviews}/>
           </div>
         </div>
-        <Map offers={nearbyOffers} activeOfferId={0} className='offers' cityName={offer.city.name}/>
+        <Map offers={nearbyOffers} activeOfferId={offer.id} className='offers' cityName={offer.city.name}/>
       </section>
-      <NearbyPlaces offersList={nearbyOffers}/>
+      <NearbyPlaces offersList={nearest}/>
     </main>
   );
 }

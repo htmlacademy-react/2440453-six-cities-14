@@ -53,7 +53,7 @@ function Map({offers, activeOfferId, className, cityName}: TMapProps): JSX.Eleme
           .addTo(markerLayer);
       });
     }
-  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon, cityName]); //? можно ли избавиться как то от зависимостей?
+  }, [map, offers, activeOfferId, currentCustomIcon, defaultCustomIcon, cityName]);
 
   return (
     <div
