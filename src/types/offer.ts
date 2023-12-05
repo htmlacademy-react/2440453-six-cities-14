@@ -21,14 +21,14 @@ export type TOfferLight = {
 }
 
 export type TOffer = TOfferLight & {
-  bedrooms?: number;
-  goods?: string[];
-  host?: THost;
-  images?: string[];
-  maxAdults?: number;
-  description?: string;
+  bedrooms: number;
+  goods: string[];
+  host: THost;
+  images: string[];
+  maxAdults: number;
+  description: string;
 }
 
-export type TOfferList = TOffer[];
+export type TOfferList = TOfferLight[];
 
 

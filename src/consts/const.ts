@@ -77,3 +77,7 @@ export const URL_MARKER_DEFAULT = '/img/pin.svg';
 
 export const URL_MARKER_CURRENT = '/img/pin-active.svg';
 
+export const MAX_GALLERY_SIZE = 6;
+
+export const MAX_NEARBY_PLACES_COUNT = 3;
+

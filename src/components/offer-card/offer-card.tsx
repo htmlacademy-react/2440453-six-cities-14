@@ -1,9 +1,9 @@
-import { TOffer } from '../../types/offer';
+import { TOfferLight } from '../../types/offer';
 import { Link } from 'react-router-dom';
 import { calcHiddenPremiumClass, calcRaitingPersent } from '../../utils';
 
 type TOfferCardProps = {
-  offer: TOffer;
+  offer: TOfferLight;
   onMouseEnter?: React.MouseEventHandler;
   onMouseLeave?: React.MouseEventHandler;
 }
